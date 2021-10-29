@@ -1,0 +1,9 @@
+.vs
+Debug
+Release
+
+Manifest/Debug
+Manifest/Release
+
+MyGame/Debug
+MyGame/Release
