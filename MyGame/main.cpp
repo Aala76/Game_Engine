@@ -1,4 +1,4 @@
-#include "manifest.h"
+#include "Manifest.h"
 
 //Entry point 
 
