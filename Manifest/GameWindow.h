@@ -2,6 +2,7 @@
 
 #include "ManifestUtils.h"
 #include "WindowImplementation.h"
+#include "pch.h"
 
 namespace Manifest
 {
@@ -15,7 +16,7 @@ namespace Manifest
 		int GetWindowWidth();
 		int GetWindowHeight();
 	private:
-		WindowImplementation* mWindow;
+		std::unique_ptr<WindowImplementation> mWindow;
 
 	};
 
