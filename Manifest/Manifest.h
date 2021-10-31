@@ -2,6 +2,7 @@
 
 #include "ManifestApp.h"
 #include "ManifestUtils.h"
+#include "GameWindow.h"
 
 #define START_MANIFEST_GAME(classname)\
 int main()\

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ManifestUtils.h"
+#include "GameWindow.h"
 
 namespace Manifest
 {
@@ -14,6 +15,7 @@ namespace Manifest
 		ManifestApp();
 
 	private:
+		GameWindow mGameWindow;
 
 	};
 

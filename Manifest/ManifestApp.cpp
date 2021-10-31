@@ -10,19 +10,16 @@ namespace Manifest
 	{
 		std::cout << "Manifest running..." << std::endl;
 
-		GLFWwindow* window;
 
-		glfwInit();
-
-		window = glfwCreateWindow(800, 600, "test", NULL, NULL);
+		mGameWindow.CreateWindow(800, 600, "test");
 
 
 		while (true)
 		{
 			OnUpdate();
 
-			glfwSwapBuffers(window);
-			glfwPollEvents();
+			mGameWindow.SwapBuffers();
+			mGameWindow.PollEvents();
 		}
 	}
 
@@ -33,7 +30,6 @@ namespace Manifest
 
 	ManifestApp::ManifestApp()
 	{
-
 	}
 
 }
