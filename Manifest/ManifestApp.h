@@ -2,6 +2,7 @@
 
 #include "ManifestUtils.h"
 #include "GameWindow.h"
+#include "pch.h"
 
 namespace Manifest
 {
