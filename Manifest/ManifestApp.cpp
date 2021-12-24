@@ -14,38 +14,24 @@ namespace Manifest
 {
 	void ManifestApp::Run()
 	{
-		std::cout << "Manifest running..." << std::endl;
+		MANIFEST_LOG("Manifest app is running...");
 
-
-		mGameWindow.CreateWindow(800, 600, "test");
-		
-		Renderer::Init();
-
-		
-
-		//Shaders
-		Manifest::Shader myShader;
-		myShader.Load("C:/Users/midor/Desktop/MyGame/Manifest/Assets/Shader/myVertexShader.glsl",
-			"C:/Users/midor/Desktop/MyGame/Manifest/Assets/Shader/myFragmentShader.glsl");
-		myShader.SetVec2IntUniform("screenSize",
-			mGameWindow.GetWindowWidth(),
-			mGameWindow.GetWindowHeight());
-
-		//Texture
-		Manifest::Sprite fish;
-		fish.LoadImage("C:/Users/midor/Desktop/MyGame/Manifest/Assets/Texture/koshka.png");
+		mTimeOfNextFrame = std::chrono::steady_clock::now() + mFrameDuration;
 
 		while (true)
 		{
 			Renderer::ClearFrame();
 
 			OnUpdate();
-
-			Renderer::Draw(fish, 100, 50, fish.GetWidth(), fish.GetHeight(), myShader);
-
+			
+			std::this_thread::sleep_until(mTimeOfNextFrame);
+			
 			mGameWindow.SwapBuffers();
 
 			mGameWindow.PollEvents();
+
+			mTimeOfNextFrame += mFrameDuration;
+
 		}
 		Renderer::ShutDown();
 	}
@@ -55,8 +41,30 @@ namespace Manifest
 
 	}
 
+	void ManifestApp::OnKeyPressed(KeyPressedEvent& event)
+	{
+		MANIFEST_LOG(event.GetKeyCode());
+	}
+
+	int ManifestApp::GetGameWindowWidth() const
+	{
+		return mGameWindow.GetWindowWidth();
+	}
+
+	int ManifestApp::GetGameWindowHeight() const
+	{
+		return mGameWindow.GetWindowHeight();
+	}
+
 	ManifestApp::ManifestApp()
 	{
+		mGameWindow.CreateWindow(800, 800, "Game");
+
+		mGameWindow.SetKeyPressedCallback([this](KeyPressedEvent& event) {
+			OnKeyPressed(event);
+			});
+
+		Renderer::Init();
 	}
 
 }

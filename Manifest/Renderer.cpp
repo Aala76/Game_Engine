@@ -20,21 +20,26 @@ namespace Manifest
 			mInstance = new Renderer;
 
 	}
-	void Renderer::Draw(Sprite& sprite, 
-		int xPos, int yPos,
-		int width, int height,
-		Shader& shader)
+
+	void Renderer::Draw(Sprite& sprite, int xPos, int yPos, int width, int height,Shader& shader)
 	{
 		mImplementation->Draw(sprite, xPos, yPos, width, height, shader);
 	}
+
 	void Renderer::ClearFrame()
 	{
 		mImplementation->ClearFrame();
 	}
+
 	void Renderer::ShutDown()
 	{
 		if (mInstance != nullptr)
+		{
+
 			delete mInstance;
+			mInstance = nullptr;
+
+		}
 	}
 	
 }

@@ -1,5 +1,6 @@
 #pragma once
 
+
 #include "pch.h"
 #include "Sprite.h"
 #include "Shader.h"
@@ -22,9 +23,10 @@ namespace Manifest
 	private:
 		
 		Renderer();
-		
 		inline static Renderer* mInstance{ nullptr };
 		inline static std::unique_ptr<RendererImplementation> mImplementation;
 
 	};
+	 
+	
 }

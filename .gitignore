@@ -9,3 +9,8 @@ MyGame/Debug
 MyGame/Release
 
 glfw/build
+
+stbi/Debug
+stbi/Release
+
+glad/x64

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "pch.h"
-#include "Manifest.h"
+#include "ManifestUtils.h"
 #include "SpriteImplementation.h"
 
 namespace Manifest

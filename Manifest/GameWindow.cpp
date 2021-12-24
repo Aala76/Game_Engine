@@ -36,15 +36,21 @@ namespace Manifest
 		mWindow->PollEvents();
 	}
 
-	int GameWindow::GetWindowWidth()
+	int GameWindow::GetWindowWidth() const
 	{
 		return mWindow->GetWindowWidth();
 	}
 
-	int GameWindow::GetWindowHeight()
+	int GameWindow::GetWindowHeight() const
 	{
 		return mWindow->GetWindowHeight();
 	}
 
+	void GameWindow::SetKeyPressedCallback(std::function<void(KeyPressedEvent&)> func)
+	{
+		mWindow->SetKeyPressedCallback(func);
+	}
+
+	
 }
 

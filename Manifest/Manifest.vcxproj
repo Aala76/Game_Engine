@@ -86,11 +86,11 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>MANIFEST_LIB;MANIFEST_WINDOWS;MANIFEST_OPENGL;MANIFEST_LIB;MANIFEST_WINDOWS;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>MANIFEST_LIB;MANIFEST_WINDOWS;MANIFEST_OPENGL;MANIFEST_DEBUG;MANIFEST_LIB;MANIFEST_WINDOWS;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>C:\Users\midor\Desktop\MyGame\glfw\include;C:\Users\midor\Desktop\MyGame\Manifest;C:\Users\midor\Desktop\MyGame\stbi;C:\Users\midor\Desktop\MyGame\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)glfw\include;$(SolutionDir)Manifest;$(SolutionDir)stbi;$(SolutionDir)glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -104,11 +104,11 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>MANIFEST_LIB;MANIFEST_WINDOWS;MANIFEST_OPENGL;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>MANIFEST_LIB;MANIFEST_WINDOWS;MANIFEST_OPENGL;MANIFEST_DEBUG;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>C:\Users\midor\Desktop\MyGame\glfw\include;C:\Users\midor\Desktop\MyGame\Manifest;C:\Users\midor\Desktop\MyGame\stbi;C:\Users\midor\Desktop\MyGame\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)glfw\include;$(SolutionDir)Manifest;$(SolutionDir)stbi;$(SolutionDir)glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -122,11 +122,11 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>MANIFEST_LIB;MANIFEST_WINDOWS;MANIFEST_OPENGL;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>MANIFEST_LIB;MANIFEST_WINDOWS;MANIFEST_OPENGL;MANIFEST_DEBUG;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>C:\Users\midor\Desktop\MyGame\glfw\include;C:\Users\midor\Desktop\MyGame\Manifest;C:\Users\midor\Desktop\MyGame\stbi;C:\Users\midor\Desktop\MyGame\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)glfw\include;$(SolutionDir)Manifest;$(SolutionDir)stbi;$(SolutionDir)glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -140,11 +140,11 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>MANIFEST_LIB;MANIFEST_WINDOWS;MANIFEST_OPENGL;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>MANIFEST_LIB;MANIFEST_WINDOWS;MANIFEST_OPENGL;MANIFEST_DEBUG;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>C:\Users\midor\Desktop\MyGame\glfw\include;C:\Users\midor\Desktop\MyGame\Manifest;C:\Users\midor\Desktop\MyGame\stbi;C:\Users\midor\Desktop\MyGame\glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)glfw\include;$(SolutionDir)Manifest;$(SolutionDir)stbi;$(SolutionDir)glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -155,8 +155,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Events.h" />
     <ClInclude Include="GameWindow.h" />
     <ClInclude Include="GLFWimpl\GlfwImplementation.h" />
+    <ClInclude Include="KeyCodes.h" />
     <ClInclude Include="Manifest.h" />
     <ClInclude Include="ManifestApp.h" />
     <ClInclude Include="ManifestUtils.h" />
@@ -173,6 +175,7 @@
     <ClInclude Include="WindowImplementation.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Events.cpp" />
     <ClCompile Include="GameWindow.cpp" />
     <ClCompile Include="GLFWimpl\GlfwImplementation.cpp" />
     <ClCompile Include="ManifestApp.cpp" />

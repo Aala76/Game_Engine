@@ -15,6 +15,11 @@ elseif(UNIX)
 	add_definitions(-DMANIFEST_LINUX)
 endif()
 
+add_definitions(-DMANIFEST_OPENGL)
+
 add_subdirectory(MyGame)
 add_subdirectory(Manifest)
 add_subdirectory(glfw)
+add_subdirectory(glad)
+add_subdirectory(stbi)
+

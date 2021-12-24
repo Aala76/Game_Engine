@@ -1,6 +1,9 @@
 #pragma once
 #include "WindowImplementation.h"
+
+#define GLFW_INCLUDE_NONE
 #include "GLFW/glfw3.h"
+#include "glad/glad.h"
 
 namespace Manifest
 {
@@ -13,10 +16,16 @@ namespace Manifest
 		virtual void PollEvents() override;
 		virtual int GetWindowWidth() const override;
 		virtual int GetWindowHeight() const override;
+		virtual void SetKeyPressedCallback(std::function<void(KeyPressedEvent&)> func) override;
 
 	private:
+		struct CallbackFunctions
+		{
+			std::function<void(KeyPressedEvent &)> KeyPressedCallback;
+		} mCallbacks;
+
 		GLFWwindow* mWindow;
 
 	};
 
-}
+};

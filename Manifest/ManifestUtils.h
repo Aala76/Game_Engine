@@ -9,3 +9,9 @@
 #else
 	#define MANIFEST_API
 #endif
+
+#ifdef MANIFEST_DEBUG
+	#define MANIFEST_LOG(x) std::cout<<x<<std::endl;
+#else
+	#define MANIFEST_LOG(x)
+#endif
