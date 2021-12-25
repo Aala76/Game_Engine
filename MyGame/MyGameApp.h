@@ -16,6 +16,7 @@ private:
 	Unit mBackground;
 	std::vector<Unit> mViruses;
 	std::vector<Unit> mInfected;
+	std::vector<Unit> mHearts;
 	int mFrameCounter;
 	Manifest::Shader mShader;
 	

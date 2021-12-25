@@ -94,7 +94,25 @@ void MyGameApp::OnUpdate()
 		else
 			inf++;
 	}
+
+
 	
+
+
+	if (mFrameCounter % FRAMES_PER_SECOND == 0 &&  (mInfected.size() == 5 && mViruses.size() == 10))
+	{
+
+
+		mInfected.push_back(Unit{ "Assets/Texture/misso.png", 350, 350, 10 });
+	
+	}
+
+	auto heart = mHearts.begin();
+
+
+	for (auto& heart : mHearts)
+		heart.Draw(mShader);
+
 	for (auto& virus : mViruses)
 		virus.Draw(mShader);
 

@@ -1,9 +1,19 @@
-Added background picture to GameWindow
-Added Cat charachter to Game
-Added new Virus icon. 
-Cat and  hero characters move in oppisite directions. When Left is pressed, 
-Hero moves Left cat moves right, When right key is pressed Hero moves left and cat moves right. 
-When down key is pressed Hero Moves down and cat moves up, when up key is pressed, hero moves up and 
-Cat moves down.
-Only the cat Character can kill the blue virus.Red virus does not effect Cat.
-Only the Human character can kill the red virus. Blue virus does not effect Human.
+- The goal of the game is to combat the viruses and prevent them from infiltrating the area.
+If there are more than 15 viruses on the screen, the mission has failed.
+
+Game Window now has a backdrop picture, as well as a Cat character and a Cat Virus. 
+
+Characters like the cat and the hero move in opposite directions.
+When the left key is pressed, Hero moves to the left and the cat moves to the right;
+when the right key is pressed, Hero moves to the left and the cat moves to the right.
+When the down key is pushed, Hero descends and the cat ascends.
+When the up key is pushed, the hero ascends and Cat descends. 
+
+
+The blue virus can only be killed by the cat character.
+Cat is unaffected by the red virus.
+
+The red virus can only be defeated by the Hero character.
+Hero is unaffected by the blue virus.
+
+When there are 15 or more viruses on the screen, the "Mission failed" message appears. 
