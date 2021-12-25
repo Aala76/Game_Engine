@@ -1,0 +1,9 @@
+Added background picture to GameWindow
+Added Cat charachter to Game
+Added new Virus icon. 
+Cat and  hero characters move in oppisite directions. When Left is pressed, 
+Hero moves Left cat moves right, When right key is pressed Hero moves left and cat moves right. 
+When down key is pressed Hero Moves down and cat moves up, when up key is pressed, hero moves up and 
+Cat moves down.
+Only the cat Character can kill the blue virus.Red virus does not effect Cat.
+Only the Human character can kill the red virus. Blue virus does not effect Human.

@@ -12,7 +12,11 @@ public:
 
 private:
 	Unit mHero;
+	Unit mCat;
+	Unit mBackground;
 	std::vector<Unit> mViruses;
+	std::vector<Unit> mInfected;
 	int mFrameCounter;
 	Manifest::Shader mShader;
+	
 };

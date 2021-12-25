@@ -1,6 +1,6 @@
 #include "MyGameApp.h"
 
-MyGameApp::MyGameApp() : mHero("Assets/Texture/heroa.png", 0, 0, 10), mFrameCounter(0)
+MyGameApp::MyGameApp() :  mHero("Assets/Texture/heroa.png", 0, 0, 10), mCat("Assets/Texture/koshka.png", 10, 50, 10), mBackground("Assets/Texture/retro2.png", 0, 0,10), mFrameCounter(0)
 {
 	mShader.Load("Assets/Shader/myVertexShader.glsl",
 		"Assets/Shader/myFragmentShader.glsl");
@@ -9,6 +9,9 @@ MyGameApp::MyGameApp() : mHero("Assets/Texture/heroa.png", 0, 0, 10), mFrameCoun
 
 void MyGameApp::OnUpdate()
 {
+	mBackground.UpdatePosition();
+	mBackground.Draw(mShader);
+	mCat.UpdatePosition();
 	mHero.UpdatePosition();
 
 	//updadte existing viruses 
@@ -16,7 +19,12 @@ void MyGameApp::OnUpdate()
 	{
 		virus.UpdatePosition();
 	}
-	
+
+	for (auto& infection : mInfected)
+	{
+		infection.UpdatePosition();
+	}
+
 
 	//Introduce new virus every sec
 	if (mFrameCounter % FRAMES_PER_SECOND == 0 && mViruses.size() <10)
@@ -42,7 +50,9 @@ void MyGameApp::OnUpdate()
 	}
 
 
+	
 	//check collitions
+
 	auto it = mViruses.begin();
 	while (it != mViruses.end())
 	{
@@ -52,36 +62,82 @@ void MyGameApp::OnUpdate()
 			it++;
 	}
 
+
+
+	if (mFrameCounter% FRAMES_PER_SECOND == 0 && mInfected.size() < 5)
+	{
+
+		int aX{ rand() % 600 };
+		int aY{ rand() % 700 };
+		Unit::Direction virusadir;
+
+		int dirVal{ rand() % 4 };
+		if (dirVal == 0)
+			virusadir = Unit::Direction::Down;
+		else if (dirVal == 1)
+			virusadir = Unit::Direction::Up;
+		else if (dirVal == 2)
+			virusadir = Unit::Direction::Left;
+		else
+			virusadir = Unit::Direction::Right;
+
+
+		mInfected.push_back(Unit{ "Assets/Texture/virusa.png", aX, aY, 10 });
+		mInfected.back().SetDirection(virusadir);
+	}
+
+	auto inf = mInfected.begin();
+	while (inf != mInfected.end())
+	{
+		if (mCat.CollideWith(*inf))
+			inf = mInfected.erase(inf);
+		else
+			inf++;
+	}
+	
 	for (auto& virus : mViruses)
 		virus.Draw(mShader);
 
+	for (auto& infected : mInfected)
+		infected.Draw(mShader);
+
+
 	mHero.Draw(mShader);
 
+	mCat.Draw(mShader);
+	
 	mFrameCounter++;
+
+	
 }
 
 void MyGameApp::OnKeyPressed(Manifest::KeyPressedEvent& event)
-{
+{	
+		
 	switch (event.GetKeyCode())
 	{
 	case MANIFEST_KEY_LEFT:
 		//mHero.setPosX(mHero.GetPosX() - mHero.GetSpeed());
 		mHero.SetDirection(Unit::Direction::Left);
+		mCat.SetDirection(Unit::Direction::Right);
 		break;
 
 	case MANIFEST_KEY_RIGHT:
 		//mHero.setPosX(mHero.GetPosX() + mHero.GetSpeed());
 		mHero.SetDirection(Unit::Direction::Right);
+		mCat.SetDirection(Unit::Direction::Left);
 		break;
 
 	case MANIFEST_KEY_DOWN:
 		//mHero.setPosY(mHero.GetPosY() - mHero.GetSpeed());
 		mHero.SetDirection(Unit::Direction::Down);
+		mCat.SetDirection(Unit::Direction::Up);
 		break;
 
 	case MANIFEST_KEY_UP:
 		//mHero.setPosY(mHero.GetPosY() +  mHero.GetSpeed());
 		mHero.SetDirection(Unit::Direction::Up);
+		mCat.SetDirection(Unit::Direction::Down);
 		break;
 	}
 }
